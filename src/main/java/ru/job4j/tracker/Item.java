@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker;/* всё уже было */
 
 public class Item {
     private int id;
@@ -18,5 +18,8 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Item() {
     }
 }
