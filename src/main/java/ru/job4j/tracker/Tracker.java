@@ -6,7 +6,7 @@ public class Tracker {
     private int size = 0;
 
     public Item add(Item item) {
-        item.setId(ids++);
+        item.Item(ids++);
         items[size++] = item;
         return item;
     }
