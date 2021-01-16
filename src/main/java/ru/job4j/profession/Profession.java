@@ -7,7 +7,8 @@ public class Profession {
     private int birthday;
     private int money;
 
-    public Profession() {}
+    public Profession() {
+    }
     public Profession(String name, String surname, String edu) {
         this.name = name;
         this.surname = surname;
@@ -17,6 +18,7 @@ public class Profession {
         this.birthday = birth;
         this.money = money;
     }
+
     public String getName() {
         return name;
     }

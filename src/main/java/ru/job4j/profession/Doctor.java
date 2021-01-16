@@ -3,6 +3,13 @@ package ru.job4j.profession;
 public class Doctor extends Profession {
     private int ward;
 
+    public Doctor(String name, String surname, String edu) {
+        super(name, surname, edu);
+    }
+    public Doctor(int birth, int money) {
+        super(birth, money);
+    }
+
     public Doctor() {
     }
     public Doctor(int ward) {

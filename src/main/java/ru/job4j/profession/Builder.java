@@ -3,6 +3,10 @@ package ru.job4j.profession;
 public class Builder extends Engineer {
     private int brick;
 
+    public Builder(String plan) {
+        super(plan);
+    }
+
     public Builder(int brick) {
         this.brick = brick;
     }

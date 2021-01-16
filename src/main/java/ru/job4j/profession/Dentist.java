@@ -3,7 +3,8 @@ package ru.job4j.profession;
 public class Dentist extends Doctor {
     private int tooth;
 
-    public Dentist(int tooth) {
+    public Dentist(int ward, int tooth) {
+        super(ward);
         this.tooth = tooth;
     }
 
