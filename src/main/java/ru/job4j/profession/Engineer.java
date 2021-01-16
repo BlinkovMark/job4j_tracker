@@ -1,18 +1,15 @@
-package ru.job4j.inheritance;
+package ru.job4j.profession;
 
-public class Doctor extends Profession {
-    private int ward;
+public class Engineer extends Profession {
+    private String plan;
 
-    public Doctor() {
+    public Engineer() {
     }
-    public Doctor(int ward) {
-        this.ward = ward;
+    public Engineer(String plan) {
+        this.plan = plan;
     }
 
-    public int run(int ward) {
-        return 0;
-    }
-    public String heal(Patient patient) {
+    public String draw(String plan) {
         return null;
     }
     public String getName() {
@@ -28,4 +25,3 @@ public class Doctor extends Profession {
         return null;
     }
 }
-
