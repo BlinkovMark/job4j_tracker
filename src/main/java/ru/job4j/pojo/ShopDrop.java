@@ -6,9 +6,10 @@ public class ShopDrop {
             if (i >= index) {
                 products[i] = products[i + 1];
                 products[i + 1] = null;
-            } else if (index == products.length - 1){
-                products[products.length - 1] = null;
             }
+        }
+        if (index == products.length - 1){
+                products[products.length - 1] = null;
         }
         return products;
     }
