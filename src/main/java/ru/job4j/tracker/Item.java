@@ -7,14 +7,23 @@ public class Item {
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", created=" + created +
+                '}';
+    }
+
     public Item() {
     }
 
-    public void Item(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void Item(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -29,6 +38,4 @@ public class Item {
     public String getName() {
         return name;
     }
-
-
 }
