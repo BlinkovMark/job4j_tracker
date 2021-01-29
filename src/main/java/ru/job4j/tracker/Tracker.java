@@ -20,7 +20,7 @@ public class Tracker {
 
     public Item[] findByName(String key) {
         int val = 0;
-        Item[] rsl =  new Item[items.length];
+        Item[] rsl = new Item[items.length];
         for (int i = 0; i < size; i++) {
             Item name = items[i];
             if (key.equals(name.getName())) {
@@ -33,14 +33,31 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        Item rsl = null;
-        for (int i = 0; i < size; i++) {
-            Item item = items[i];
-            if (item.getId() == id) {
-                rsl = item;
+        /* Находим индекс */
+        int index = indexOf(id);
+        /* Если индекс найден возвращаем item, иначе null */
+        return index != -1 ? items[index] : null;
+    }
+
+    private int indexOf(int id) {
+        int rsl = -1;
+        for (int index = 0; index < size; index++) {
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
     }
+
+    public boolean replace(int id, Item item) {
+        boolean rsl = false;
+        int index = indexOf(id);
+        if (index != -1) {
+        item.setId(id);
+        items[index] = item;
+        rsl = true;
+        }
+        return rsl;
+}
 }
