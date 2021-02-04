@@ -18,6 +18,15 @@ public class Item {
 
     public Item() {
     }
+    public Item(int id) {
+        this.id = id;
+    }
+    public Item(String name) {
+        this.name = name;
+    }
+    public Item(LocalDateTime date) {
+        this.date = date;
+    }
     public Item(int id, String name, LocalDateTime date) {
         this.id = id;
         this.name = name;
