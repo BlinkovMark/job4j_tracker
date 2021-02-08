@@ -32,7 +32,7 @@ public class Matches {
                         System.out.println("Ошибка!");
                     }
                 }
-                turn = !turn;
+                break;
             }
             System.out.println("Осталось спичек: " + count);
         }
