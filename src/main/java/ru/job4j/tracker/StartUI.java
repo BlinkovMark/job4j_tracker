@@ -21,10 +21,10 @@ public class StartUI {
                     }
                 } else if (select == 2) {
                     System.out.println("=== Edit item ===");
-                    String id = input.askStr("Enter id to edit: ");
+                    int id = input.askInt("Enter id to edit: ");
                     String newItem = input.askStr("Enter new name of item: ");
                     Item name = new Item(newItem);
-                    if (tracker.replace(Integer.parseInt(id), name)) {
+                    if (tracker.replace(id, name)) {
                         System.out.println("Completed");
                     } else {
                         System.out.println("Error");
@@ -32,8 +32,8 @@ public class StartUI {
                     System.out.println();
                 } else if (select == 3) {
                     System.out.println("=== Delete item ===");
-                    String id = input.askStr("Enter id to delete: ");
-                    if (tracker.delete(Integer.parseInt(id))) {
+                    int id = input.askInt("Enter id to delete: ");
+                    if (tracker.delete(id)) {
                         System.out.println("Completed");
                     } else {
                         System.out.println("Error");
@@ -41,8 +41,8 @@ public class StartUI {
                     System.out.println();
                 } else if (select == 4) {
                     System.out.println("=== Find item by Id ===");
-                    String id = input.askStr("Enter id: ");
-                    Item showById = tracker.findById(Integer.parseInt(id));
+                    int id = input.askInt("Enter id: ");
+                    Item showById = tracker.findById(id);
                     if (showById != null) {
                         System.out.println(showById);
                     } else {
