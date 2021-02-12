@@ -1,18 +1,25 @@
 package ru.job4j.tracker;
 
 public class ShowAction implements UserAction {
+    private final Output out;
+
+    public ShowAction(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
-        return "=== Show all items ===";
+        return "Show";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        out.println("=== Show all items ===");
         Item[] showAll = tracker.findAll();
         for (int i = 0; i < showAll.length; i++) {
-            System.out.println(showAll[i]);
+            out.println(showAll[i]);
         }
-        System.out.println();
+        out.println(System.lineSeparator());
         return true;
     }
 }

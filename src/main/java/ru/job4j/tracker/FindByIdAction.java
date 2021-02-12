@@ -1,21 +1,28 @@
 package ru.job4j.tracker;
 
 public class FindByIdAction implements UserAction {
+    private final Output out;
+
+    public FindByIdAction(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
-        return "=== Find item by Id ====";
+        return "Find by Id";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        out.println("=== Find item by Id ====");
         int id = input.askInt("Enter id: ");
         Item showById = tracker.findById(id);
         if (showById != null) {
-            System.out.println(showById);
+            out.println(showById);
         } else {
-            System.out.println("Заявка с таким id не найдена");
+            out.println("Заявка с таким id не найдена");
         }
-        System.out.println();
+        out.println(System.lineSeparator());
         return true;
     }
 }
