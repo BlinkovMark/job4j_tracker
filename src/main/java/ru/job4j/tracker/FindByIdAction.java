@@ -14,7 +14,7 @@ public class FindByIdAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Find item by Id ====");
+        out.println("== Find item by Id ==");
         int id = input.askInt("Enter id: ");
         Item showById = tracker.findById(id);
         if (showById != null) {

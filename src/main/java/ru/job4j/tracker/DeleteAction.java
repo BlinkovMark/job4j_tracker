@@ -14,7 +14,7 @@ public class DeleteAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Delete item ====");
+        out.println("== Delete item ==");
         int id = input.askInt("Enter id to delete: ");
         if (tracker.delete(id)) {
             out.println("Completed");
