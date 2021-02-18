@@ -72,16 +72,18 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu.\r\n" +
-                        "0. Show\r\n" +
-                        "1. Shutdown\r\n" +
-                        "== All items ==\r\n" +
-                        item1 + "\r\n" +
-                        item2 + "\r\n\r\n\r\n" +
-                        "Menu.\r\n" +
-                        "0. Show\r\n" +
-                        "1. Shutdown\r\n" +
-                        "Bye\r\n"
+                "Menu." + System.lineSeparator() +
+                        "0. Show" + System.lineSeparator() +
+                        "1. Shutdown" + System.lineSeparator() +
+                        "== All items ==" + System.lineSeparator() +
+                        item1 + System.lineSeparator() +
+                        item2 + System.lineSeparator() +
+                        System.lineSeparator() +
+                        System.lineSeparator() +
+                        "Menu." + System.lineSeparator() +
+                        "0. Show" + System.lineSeparator() +
+                        "1. Shutdown" + System.lineSeparator() +
+                        "Bye" + System.lineSeparator()
         ));
     }
 
@@ -98,15 +100,17 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu.\r\n" +
-                        "0. Find by Name\r\n" +
-                        "1. Shutdown\r\n" +
-                        "== Find items by name ==\r\n" +
-                        "Заявки с таким именем не найдены\r\n\r\n\r\n" +
-                        "Menu.\r\n" +
-                        "0. Find by Name\r\n" +
-                        "1. Shutdown\r\n" +
-                        "Bye\r\n"
+                "Menu." + System.lineSeparator() +
+                        "0. Find by Name" + System.lineSeparator() +
+                        "1. Shutdown" + System.lineSeparator() +
+                        "== Find items by name ==" + System.lineSeparator() +
+                        "Заявки с таким именем не найдены" + System.lineSeparator() +
+                        System.lineSeparator() +
+                        System.lineSeparator() +
+                        "Menu." + System.lineSeparator() +
+                        "0. Find by Name" + System.lineSeparator() +
+                        "1. Shutdown" + System.lineSeparator() +
+                        "Bye" + System.lineSeparator()
         ));
     }
     @Test
@@ -122,15 +126,17 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu.\r\n" +
-                        "0. Find by Id\r\n" +
-                        "1. Shutdown\r\n" +
-                        "== Find item by Id ==\r\n" +
-                        "Заявка с таким id не найдена\r\n\r\n\r\n" +
-                        "Menu.\r\n" +
-                        "0. Find by Id\r\n" +
-                        "1. Shutdown\r\n" +
-                        "Bye\r\n"
+                "Menu." + System.lineSeparator() +
+                        "0. Find by Id" + System.lineSeparator() +
+                        "1. Shutdown" + System.lineSeparator() +
+                        "== Find item by Id ==" + System.lineSeparator() +
+                        "Заявка с таким id не найдена" + System.lineSeparator() +
+                        System.lineSeparator() +
+                        System.lineSeparator() +
+                        "Menu." + System.lineSeparator() +
+                        "0. Find by Id" + System.lineSeparator() +
+                        "1. Shutdown" + System.lineSeparator() +
+                        "Bye" + System.lineSeparator()
         ));
     }
 }
