@@ -1,4 +1,4 @@
- package ru.job4j.ex; //again
+ package ru.job4j.ex;
 
  import java.util.Scanner;
 
