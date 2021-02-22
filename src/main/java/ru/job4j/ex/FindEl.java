@@ -2,13 +2,14 @@ package ru.job4j.ex;
 
 public class FindEl {
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {
-        int rsl = 0;
+        int rsl = -1;
         for (int i = 0; i < value.length; i++) {
                 if (key.equals(value[i])) {
                     rsl = i;
+                    break;
                 }
         }
-        if (!key.equals(value[rsl])) {
+        if (rsl == -1) {
             throw new ElementNotFoundException("Error 404");
         }
         return rsl;
@@ -16,7 +17,7 @@ public class FindEl {
 
     public static void main(String[] args) {
         try {
-            System.out.println(indexOf(new String[]{"nik", "regina", "inna", "mark", "dan"},
+            System.out.println(indexOf(new String[]{"nik", "regina", "inna", "mark", "den"},
                     "mark"));
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
