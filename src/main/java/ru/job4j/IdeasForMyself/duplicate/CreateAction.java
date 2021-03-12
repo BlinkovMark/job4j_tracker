@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.IdeasForMyself.duplicate;
 
 public class CreateAction implements UserAction {
     private final Output out;

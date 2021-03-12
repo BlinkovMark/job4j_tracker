@@ -1,7 +1,6 @@
 package ru.job4j.oop;
 
 public class Cat {
-
     private String name;
     private String food;
 
