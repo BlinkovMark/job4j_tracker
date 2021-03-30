@@ -9,7 +9,7 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
 
-    public ArrayList<Person> find(String key) throws Error404Exception {
+    public ArrayList<Person> find(String key)  {
             ArrayList<Person> result = new ArrayList<>();
             for (Person rsl : persons) {
                 if (rsl.getName().contains(key) ||
@@ -17,8 +17,6 @@ public class PhoneDictionary {
                         rsl.getAddress().contains(key) ||
                         rsl.getPhone().contains(key)) {
                     result.add(rsl);
-                } else {
-                    throw new Error404Exception("Error 404");
                 }
             }
         return result;

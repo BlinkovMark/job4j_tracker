@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class PhoneDictionaryTest {
     @Test
-    public void whenFindByName() throws Error404Exception {
+    public void whenFindByName() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Mark", "Blinkov", "55921184", "Tallinn"));
@@ -17,11 +17,12 @@ public class PhoneDictionaryTest {
     }
 
 
-    @Test(expected = Error404Exception.class)
-    public void whenNotFound() throws Error404Exception {
+    @Test
+    public void whenNotFound() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Mark", "Blinkov", "55921184", "Tallinn"));
-        phones.find("0");
+        ArrayList<Person> persons = phones.find("F");
+        assertThat(persons.toArray().length, is(0));
     }
 }
