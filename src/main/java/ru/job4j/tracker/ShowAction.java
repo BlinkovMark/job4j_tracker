@@ -18,8 +18,8 @@ public class ShowAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         out.println("== All items ==");
         List<Item> showAll = tracker.findAll();
-        for (int i = 0; i < showAll.size(); i++) {
-            out.println(showAll.get(i));
+        for (Item item : showAll) {
+            out.println(item);
         }
         out.println(System.lineSeparator());
         return true;
