@@ -15,9 +15,11 @@ public class PassportOfficeTest {
     }
 
     @Test
-    public void doesNotExist() {
-        Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
+    public void whenCant() {
+        Citizen citizenOne = new Citizen("444555", "fio");
+        Citizen citizenTwo = new Citizen("444555", "fio");
         PassportOffice office = new PassportOffice();
-        assertNull(office.get(citizen.getPassport()));
+        office.add(citizenOne);
+        assertThat(office.add(citizenTwo), is(false));
     }
 }
