@@ -1,4 +1,4 @@
-package ru.job4j.tracker; //again
+package ru.job4j.tracker;
 
 import java.util.Comparator;
 
