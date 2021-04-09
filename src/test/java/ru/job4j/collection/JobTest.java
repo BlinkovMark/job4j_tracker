@@ -47,8 +47,8 @@ public class JobTest {
     public void whenComparatorByNameAndPriority() {
         Comparator<Job> cmp = new ByNameSort().thenComparing(new ByPrioritySort());
         int rsl = cmp.compare(
-                new Job("first", 0),
-                new Job("second", 1));
+                new Job("item", 0),
+                new Job("item", 1));
         assertThat(rsl, lessThan(0));
     }
 
@@ -56,8 +56,8 @@ public class JobTest {
     public void whenComparatorByNameAndPriorityReverse() {
         Comparator<Job> cmp = new ByNameSortReverse().thenComparing(new ByPrioritySortReverse());
         int rsl = cmp.compare(
-                new Job("first", 0),
-                new Job("second", 1));
+                new Job("item", 0),
+                new Job("item", 1));
         assertThat(rsl, greaterThan(0));
     }
 }
