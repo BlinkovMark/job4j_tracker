@@ -1,6 +1,8 @@
 package ru.job4j.io;
 
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Matches {
     public static void main(String[] args) {
@@ -16,7 +18,20 @@ public class Matches {
             if (matches >= 1 && matches <= 3) {
                 count -= matches;
             } else {
-                System.out.println("Ошибка!");
+                int answer = new Random().nextInt(3);
+                if (answer == 0) {
+                    System.out.println("Жулик не воруй;)");
+                } else if (answer == 1) {
+                    System.out.println("Упс!");
+                } else if (answer == 2) {
+                    System.out.println("Обработка запроса...");
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        System.out.println("Ошибка!");
+                    }
                 break;
             }
             System.out.println("Осталось спичек: " + count);
