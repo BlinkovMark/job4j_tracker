@@ -36,7 +36,7 @@ public class JobTest {
 
     @Test
     public void whenComparatorByPriorityReverse() {
-        Comparator<Job> cmp =new ByPrioritySortReverse();
+        Comparator<Job> cmp = new ByPrioritySortReverse();
         int rsl = cmp.compare(
                 new Job("first", 0),
                 new Job("second", 1));

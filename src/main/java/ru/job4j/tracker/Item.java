@@ -8,13 +8,17 @@ public class Item implements Comparable<Item> {
     private LocalDateTime date = LocalDateTime.now();
     private int priority;
 
-    public Item() {}
+    public Item() {
+    }
+
     public Item(int id) {
         this.id = id;
     }
+
     public Item(String name) {
         this.name = name;
     }
+
     public Item(LocalDateTime date) {
         this.date = date;
     }
@@ -53,10 +57,10 @@ public class Item implements Comparable<Item> {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", date=" + date +
-                '}';
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", date=" + date
+                + '}';
     }
 }

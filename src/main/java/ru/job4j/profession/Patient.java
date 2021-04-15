@@ -1,4 +1,4 @@
-package ru.job4j.profession;// again
+package ru.job4j.profession;
 
 public class Patient {
     private String state;
@@ -10,12 +10,15 @@ public class Patient {
     public String getName() {
         return null;
     }
+
     public String getSurname() {
         return null;
     }
+
     public int getBirt() {
         return 0;
     }
+
     public String getState(String state) {
         return null;
     }

@@ -6,7 +6,8 @@ public class College {
         student.setFIO("Mark Blinkov Maksimovich");
         student.setGroup("11A");
         student.setStartDate(2020);
-
-        System.out.println(student.getFIO() + " : " + student.getGroup() + " : " + student.getStartDate());
+        System.out.println(student.getFio() + " : "
+                + student.getGroup() + " : "
+                + student.getStartDate());
     }
 }

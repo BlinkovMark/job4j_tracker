@@ -1,12 +1,12 @@
 package ru.job4j.pojo;
 
 public class Student {
-    private String FIO;
+    private String fio;
     private String group;
     private int startDate;
 
-    public void setFIO(String FIO) {
-        this.FIO = FIO;
+    public void setFIO(String fio) {
+        this.fio = fio;
     }
 
     public void setGroup(String group) {
@@ -17,8 +17,8 @@ public class Student {
         this.startDate = startDate;
     }
 
-    public String getFIO() {
-        return FIO;
+    public String getFio() {
+        return fio;
     }
 
     public String getGroup() {

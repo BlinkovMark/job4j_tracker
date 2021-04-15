@@ -36,7 +36,7 @@ public class StartUITest {
                 new String[]{"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         List<UserAction> actions = new ArrayList<>();
-        actions.add( new ReplaceAction(out));
+        actions.add(new ReplaceAction(out));
         actions.add(new ShutdownAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
@@ -71,18 +71,18 @@ public class StartUITest {
         actions.add(new ShutdownAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Show" + System.lineSeparator() +
-                        "1. Shutdown" + System.lineSeparator() +
-                        "== All items ==" + System.lineSeparator() +
-                        item1 + System.lineSeparator() +
-                        item2 + System.lineSeparator() +
-                        System.lineSeparator() +
-                        System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Show" + System.lineSeparator() +
-                        "1. Shutdown" + System.lineSeparator() +
-                        "Bye" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Show" + System.lineSeparator()
+                        + "1. Shutdown" + System.lineSeparator()
+                        + "== All items ==" + System.lineSeparator()
+                        + item1 + System.lineSeparator()
+                        + item2 + System.lineSeparator()
+                        + System.lineSeparator()
+                        + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Show" + System.lineSeparator()
+                        + "1. Shutdown" + System.lineSeparator()
+                        + "Bye" + System.lineSeparator()
         ));
     }
 
@@ -98,19 +98,20 @@ public class StartUITest {
         actions.add(new ShutdownAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Find by Name" + System.lineSeparator() +
-                        "1. Shutdown" + System.lineSeparator() +
-                        "== Find items by name ==" + System.lineSeparator() +
-                        "Заявки с таким именем не найдены" + System.lineSeparator() +
-                        System.lineSeparator() +
-                        System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Find by Name" + System.lineSeparator() +
-                        "1. Shutdown" + System.lineSeparator() +
-                        "Bye" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        +  "0. Find by Name" + System.lineSeparator()
+                        + "1. Shutdown" + System.lineSeparator()
+                        + "== Find items by name ==" + System.lineSeparator()
+                        + "Заявки с таким именем не найдены" + System.lineSeparator()
+                        + System.lineSeparator()
+                        + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Find by Name" + System.lineSeparator()
+                        + "1. Shutdown" + System.lineSeparator()
+                        + "Bye" + System.lineSeparator()
         ));
     }
+
     @Test
     public void whenFindByIdAction() {
         Output out = new StubOutput();
@@ -123,17 +124,17 @@ public class StartUITest {
         actions.add(new ShutdownAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Find by Id" + System.lineSeparator() +
-                        "1. Shutdown" + System.lineSeparator() +
-                        "== Find item by Id ==" + System.lineSeparator() +
-                        "Заявка с таким id не найдена" + System.lineSeparator() +
-                        System.lineSeparator() +
-                        System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Find by Id" + System.lineSeparator() +
-                        "1. Shutdown" + System.lineSeparator() +
-                        "Bye" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Find by Id" + System.lineSeparator()
+                        + "1. Shutdown" + System.lineSeparator()
+                        + "== Find item by Id ==" + System.lineSeparator()
+                        + "Заявка с таким id не найдена" + System.lineSeparator()
+                        + System.lineSeparator()
+                        + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Find by Id" + System.lineSeparator()
+                        + "1. Shutdown" + System.lineSeparator()
+                        + "Bye" + System.lineSeparator()
         ));
     }
 
@@ -141,19 +142,19 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"1","0"}
+                new String[] {"1", "0"}
         );
         Tracker tracker = new Tracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ShutdownAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Shutdown" + System.lineSeparator() +
-                        "Wrong input, you can select: 0 .. 0" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Shutdown" + System.lineSeparator() +
-                        "Bye" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Shutdown" + System.lineSeparator()
+                        + "Wrong input, you can select: 0 .. 0" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Shutdown" + System.lineSeparator()
+                        + "Bye" + System.lineSeparator()
         ));
     }
 }
