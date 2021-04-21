@@ -99,9 +99,9 @@ public class BankService {
         }
         return rsl;
     }
-
     /**
-     * Метод принимает паспорт, реквизиты переводящего, паспорт, реквизиты получателя и сумму перевода
+     * Метод принимает паспорт, реквизиты переводящего, паспорт,
+     * реквизиты получателя и сумму перевода
      * находит счет переводящего по паспорту и реквизитам, используя метод findByRequisite
      * находит счет получателя по паспорту и реквизитам, используя метод findByRequisite
      * проверяет, что счет переводящего и получателя найден(то есть не равен null)
@@ -115,6 +115,7 @@ public class BankService {
      * @param amount сумма перевода
      * @return возвращает true или false если перевод выполнен
      */
+
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
