@@ -1,4 +1,4 @@
-package ru.job4j.Homework;
+package ru.job4j.homework;
 
 import java.util.Arrays;
 import java.util.HashSet;

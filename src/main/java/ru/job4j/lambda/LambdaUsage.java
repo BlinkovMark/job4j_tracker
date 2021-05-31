@@ -1,4 +1,4 @@
-package ru.job4j.function;
+package ru.job4j.lambda;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class LambdaUsage {
     public static void main(String[] args) {
         String[] strings = {
-            "image 1","image 3", "image 2" };
+            "image 1", "image 3", "image 2"};
         Comparator<String> comparator = (left, right) -> {
             System.out.println("compare - " + right + " : " + left);
             return right.compareTo(left);
