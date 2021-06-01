@@ -1,7 +1,6 @@
 package ru.job4j.search;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -23,5 +22,15 @@ public class PhoneDictionaryTest {
                 new Person("Mark", "Blinkov", "55921184", "Tallinn"));
         ArrayList<Person> persons = phones.find("F");
         assertThat(persons.toArray().length, is(0));
+    }
+
+        @Test
+        public void whenFindByName2() {
+            PhoneDictionary phones = new PhoneDictionary();
+            phones.add(
+                    new Person("Petr", "Arsentev", "534872", "Bryansk")
+            );
+            ArrayList<Person> persons = phones.find("Petr");
+            assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 }
