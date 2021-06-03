@@ -1,8 +1,8 @@
 package ru.job4j.stream;
 
 import org.junit.Test;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
 import java.util.function.Predicate;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -60,6 +60,96 @@ public class SchoolTest {
         expected.add(new Student(10, "Surname1"));
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenMap() {
+        List<Student> students = List.of(
+                new Student("Surname2", 35),
+                new Student("Surname1", 13),
+                new Student("Surname3", 53),
+                new Student("Surname1", 13),
+                new Student("Surname3", 53),
+                new Student("Surname2", 35),
+                new Student("Surname4", 89)
+
+        );
+        School sc = new School();
+        Map<String, Integer> rsl = sc.map(students);
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("Surname1", 13);
+        expected.put("Surname2", 35);
+        expected.put("Surname3", 53);
+        expected.put("Surname4", 89);
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenMapClassA() {
+        List<Student> students = List.of(
+                new Student("Surname2", 86),
+                new Student("Surname1", 70),
+                new Student("Surname3", 79),
+                new Student("Surname1", 70),
+                new Student("Surname2", 86),
+                new Student("Surname5", 59),
+                new Student("Surname4", 98)
+
+        );
+        School sc = new School();
+        Predicate<Student> pr = a -> a.getScore() >= 70 && a.getScore() <= 100;
+        Map<String, Integer> rsl = sc.collectMap(students, pr);
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("Surname4", 98);
+        expected.put("Surname3", 79);
+        expected.put("Surname2", 86);
+        expected.put("Surname1", 70);
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenMapClassB() {
+        List<Student> students = List.of(
+                new Student("Surname2", 64),
+                new Student("Surname1", 53),
+                new Student("Surname3", 67),
+                new Student("Surname1", 53),
+                new Student("Surname5", 35),
+                new Student("Surname3", 67),
+                new Student("Surname4", 58)
+        );
+        School sc = new School();
+        Predicate<Student> pr = a -> a.getScore() >= 50 && a.getScore() < 70;
+        Map<String, Integer> rsl = sc.collectMap(students, pr);
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("Surname3", 67);
+        expected.put("Surname2", 64);
+        expected.put("Surname4", 58);
+        expected.put("Surname1", 53);
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenMapClassV() {
+        List<Student> students = List.of(
+                new Student("Surname2", 34),
+                new Student("Surname3", 12),
+                new Student("Surname1", 76),
+                new Student("Surname3", 12),
+                new Student("Surname2", 34),
+                new Student("Surname4", 41),
+                new Student("Surname5", 24)
+
+        );
+        School sc = new School();
+        Predicate<Student> pr = a -> a.getScore() > 0 && a.getScore() < 50;
+        Map<String, Integer> rsl = sc.collectMap(students, pr);
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("Surname4", 41);
+        expected.put("Surname2", 34);
+        expected.put("Surname5", 24);
+        expected.put("Surname3", 12);
         assertThat(rsl, is(expected));
     }
 }
