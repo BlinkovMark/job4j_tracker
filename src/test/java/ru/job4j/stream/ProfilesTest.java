@@ -13,8 +13,8 @@ public class ProfilesTest {
         Profiles profiles = new Profiles();
         List<Profile> profile = new ArrayList<>();
         profile.add(new Profile(new Address("Tallinn", "Pikri", 6, 12)));
-        profile.add(new Profile(new Address("Tartu", "Katleri", 3, 44)));
-        profile.add(new Profile(new Address("Paide", "Kihnu", 2, 1)));
+        profile.add(new Profile(new Address("Tallinn", "Katleri", 3, 44)));
+        profile.add(new Profile(new Address("Tallinn", "Kihnu", 2, 1)));
         List<Address> expected = Arrays.asList(
                 new Address("Tallinn", "Pikri", 6, 12),
                 new Address("Tallinn", "Katleri", 3, 44),
