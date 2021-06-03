@@ -21,4 +21,17 @@ public class ProfilesTest {
                 new Address("Tallinn", "Kihnu", 2, 1));
         assertThat(profiles.collect(profile), is(expected));
     }
+
+    @Test
+    public void whenSortAddress() {
+        Profiles profiles = new Profiles();
+        List<Profile> profile = new ArrayList<>();
+        profile.add(new Profile(new Address("Tallinn", "Pikri", 6, 12)));
+        profile.add(new Profile(new Address("Maardu", "Norte", 4, 1)));
+        profile.add(new Profile(new Address("Tallinn", "Pikri", 6, 12)));
+        List<Address> expected = Arrays.asList(
+                new Address("Maardu", "Norte", 4, 1),
+                new Address("Tallinn", "Pikri", 6, 12));
+        assertThat(profiles.sort(profile), is(expected));
+    }
 }
