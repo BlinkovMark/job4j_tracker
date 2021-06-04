@@ -1,8 +1,8 @@
 package ru.job4j.stream;
 
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.List;
 import java.util.function.Predicate;
 
 public class School {
@@ -12,13 +12,12 @@ public class School {
                 .collect(Collectors.toList());
     }
 
-    public Map<String, Integer> map(List<Student> students) {
+    public Map<String, Student> map(List<Student> students) {
         return students.stream()
-                .distinct()
-                .collect(Collectors.toMap(Student::getSurname, Student::getScore));
+                .collect(Collectors.toMap(Student::getSurname, a -> a, (a, b) -> a));
     }
 
-    public Map<String, Integer> collectMap(List<Student> students, Predicate<Student> predict) {
+    public Map<String, Student> collectMap(List<Student> students, Predicate<Student> predict) {
         return map(collect(students, predict));
     }
 }
