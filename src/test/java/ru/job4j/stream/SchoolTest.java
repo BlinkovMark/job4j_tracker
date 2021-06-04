@@ -102,7 +102,7 @@ public class SchoolTest {
         Map<String, Student> rsl = sc.collectMap(students, pr);
         Map<String, Student> expected = new HashMap<>();
         expected.put("Surname4", new Student("Surname4", 98));
-        expected.put("Surname3",new Student("Surname3", 79));
+        expected.put("Surname3", new Student("Surname3", 79));
         expected.put("Surname2", new Student("Surname2", 86));
         expected.put("Surname1", new Student("Surname1", 70));
         assertThat(rsl, is(expected));
