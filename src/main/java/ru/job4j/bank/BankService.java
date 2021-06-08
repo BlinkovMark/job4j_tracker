@@ -51,53 +51,40 @@ public class BankService {
     }
 
     /**
-     * Метод принимает паспорт и используя цикл foreach
-     * проходит по всем пользователям используя метод Map.keySet
-     * если паспорт пользователя равен принимаемому паспорту,
-     * записывает пользователя в возвращаемую переменную
-     * прерывает цикл
+     * Метод принимает паспорт
+     * возвращает первый элемент отфильтрованного stream по условию,
+     * если паспорт пользователя равен принимаемому паспорту, stream ключей users
      * @param passport паспорт который надо сравнить с паспортом пользователей
      * @return возвращает найденного пользователя или null если пользователь не найден
      */
 
     public User findByPassport(String passport) {
-        User rsl = null;
-        for (User temp : users.keySet()) {
-            if (temp.getPassport().equals(passport)) {
-                rsl = temp;
-                break;
-            }
-        }
-        return rsl;
+        return users.keySet().stream()
+                .filter(a -> a.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
      * Метод принимает паспорт и реквизиты,
      * ищет пользователя по паспорту,
      * проверяет что пользователь найденный по паспорту не равен null.
-     * Получает список счетов пользователя,
-     * проходит по счетам циклом foreach,
-     * если реквизиты счета равены принимаемым реквизитам,
-     * записывает счет в возвращаемую переменную
-     * прерыает цикл
+     * возвращает первый элемент отфильтрованного stream по условию,
+     * если реквизиты пользователя равены принимаемым реквизитам, stream реквизитов users
      * @param passport паспорт по которому находят пользователя
      * @param requisite реквизиты которые надо сравнить с реквизитами счетов пользователя
      * @return возвращает счет пользователя или null если счет не найден
      */
 
     public Account findByRequisite(String passport, String requisite) {
-        Account rsl = null;
-        User temp = findByPassport(passport);
-        if (temp != null) {
-        List<Account> val = users.get(temp);
-        for (Account result : val) {
-            if (result.getRequisite().equals(requisite)) {
-                rsl = result;
-                break;
-            }
+        User user = findByPassport(passport);
+        if (user != null) {
+            return users.get(user).stream()
+                    .filter(a -> a.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
-        }
-        return rsl;
+        return null;
     }
     /**
      * Метод принимает паспорт, реквизиты переводящего, паспорт,
