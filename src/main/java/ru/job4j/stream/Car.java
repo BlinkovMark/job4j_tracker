@@ -11,15 +11,15 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "type='" + type + '\'' +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", maxSpeed=" + maxSpeed +
-                ", zeroToHundred=" + zeroToHundred +
-                ", price=" + price +
-                ", inMotion=" + inMotion +
-                '}';
+        return "Car{"
+                + "type='" + type + '\''
+                + ", brand='" + brand + '\''
+                + ", model='" + model + '\''
+                + ", maxSpeed=" + maxSpeed
+                + ", zeroToHundred=" + zeroToHundred
+                + ", price=" + price
+                + ", inMotion=" + inMotion
+                + '}';
     }
 
     static class Builder {
@@ -40,6 +40,7 @@ public class Car {
             this.brand = brand;
             return this;
         }
+
         Builder buildModel(String model) {
             this.model = model;
             return this;
