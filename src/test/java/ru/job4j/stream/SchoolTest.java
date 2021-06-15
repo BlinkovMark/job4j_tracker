@@ -20,9 +20,9 @@ public class SchoolTest {
         School sc = new School();
         Predicate<Student> pr = a -> a.getScore() >= 70 && a.getScore() <= 100;
         List<Student> rsl = sc.collect(students, pr);
-        List<Student> expected = new ArrayList<>();
-        expected.add(new Student(70, "Surname7"));
-        expected.add(new Student(90, "Surname9"));
+        List<Student> expected = List.of(
+                new Student(70, "Surname7"),
+                new Student(90, "Surname9"));
         assertThat(rsl, is(expected));
     }
 
@@ -38,9 +38,9 @@ public class SchoolTest {
         School sc = new School();
         Predicate<Student> pr = a -> a.getScore() >= 50 && a.getScore() < 70;
         List<Student> rsl = sc.collect(students, pr);
-        List<Student> expected = new ArrayList<>();
-        expected.add(new Student(50, "Surname5"));
-        expected.add(new Student(60, "Surname6"));
+        List<Student> expected =  List.of(
+                new Student(50, "Surname5"),
+                new Student(60, "Surname6"));
         assertThat(rsl, is(expected));
     }
 
@@ -56,10 +56,10 @@ public class SchoolTest {
         School sc = new School();
         Predicate<Student> pr = a -> a.getScore() > 0 && a.getScore() < 50;
         List<Student> rsl = sc.collect(students, pr);
-        List<Student> expected = new ArrayList<>();
-        expected.add(new Student(10, "Surname1"));
-        expected.add(new Student(30, "Surname3"));
-        expected.add(new Student(40, "Surname4"));
+        List<Student> expected =  List.of(
+                new Student(10, "Surname1"),
+                new Student(30, "Surname3"),
+                new Student(40, "Surname4"));
         assertThat(rsl, is(expected));
     }
 
@@ -77,11 +77,11 @@ public class SchoolTest {
         );
         School sc = new School();
         Map<String, Student> rsl = sc.map(students);
-        Map<String, Student> expected = new HashMap<>();
-        expected.put("Surname1", new Student("Surname1", 13));
-        expected.put("Surname2", new Student("Surname2", 64));
-        expected.put("Surname3", new Student("Surname3", 53));
-        expected.put("Surname4", new Student("Surname4", 89));
+        Map<String, Student> expected = Map.of(
+                "Surname1", new Student("Surname1", 13),
+                "Surname2", new Student("Surname2", 64),
+                "Surname3", new Student("Surname3", 53),
+                "Surname4", new Student("Surname4", 89));
         assertThat(rsl, is(expected));
     }
 
@@ -100,11 +100,11 @@ public class SchoolTest {
         School sc = new School();
         Predicate<Student> pr = a -> a.getScore() >= 70 && a.getScore() <= 100;
         Map<String, Student> rsl = sc.collectMap(students, pr);
-        Map<String, Student> expected = new HashMap<>();
-        expected.put("Surname4", new Student("Surname4", 98));
-        expected.put("Surname3", new Student("Surname3", 79));
-        expected.put("Surname2", new Student("Surname2", 86));
-        expected.put("Surname1", new Student("Surname1", 70));
+        Map<String, Student> expected = Map.of(
+                "Surname4", new Student("Surname4", 98),
+                "Surname3", new Student("Surname3", 79),
+                "Surname2", new Student("Surname2", 86),
+                "Surname1", new Student("Surname1", 70));
         assertThat(rsl, is(expected));
     }
 
@@ -122,11 +122,11 @@ public class SchoolTest {
         School sc = new School();
         Predicate<Student> pr = a -> a.getScore() >= 50 && a.getScore() < 70;
         Map<String, Student> rsl = sc.collectMap(students, pr);
-        Map<String, Student> expected = new HashMap<>();
-        expected.put("Surname3", new Student("Surname3", 67));
-        expected.put("Surname2", new Student("Surname2", 64));
-        expected.put("Surname4", new Student("Surname4", 58));
-        expected.put("Surname1", new Student("Surname1", 53));
+        Map<String, Student> expected = Map.of(
+                "Surname3", new Student("Surname3", 67),
+                "Surname2", new Student("Surname2", 64),
+                "Surname4", new Student("Surname4", 58),
+                "Surname1", new Student("Surname1", 53));
         assertThat(rsl, is(expected));
     }
 
@@ -145,11 +145,11 @@ public class SchoolTest {
         School sc = new School();
         Predicate<Student> pr = a -> a.getScore() > 0 && a.getScore() < 50;
         Map<String, Student> rsl = sc.collectMap(students, pr);
-        Map<String, Student> expected = new HashMap<>();
-        expected.put("Surname4", new Student("Surname4", 41));
-        expected.put("Surname2", new Student("Surname2", 34));
-        expected.put("Surname5", new Student("Surname5", 24));
-        expected.put("Surname3", new Student("Surname3", 12));
+        Map<String, Student> expected = Map.of(
+                "Surname4", new Student("Surname4", 41),
+                "Surname2", new Student("Surname2", 34),
+                "Surname5", new Student("Surname5", 24),
+                "Surname3", new Student("Surname3", 12));
         assertThat(rsl, is(expected));
     }
 }

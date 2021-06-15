@@ -12,6 +12,7 @@ public class Profiles {
     }
 
     public List<Address> sort(List<Profile> profiles) {
+
         return profiles.stream()
                 .map(Profile::getAddress)
                 .sorted(Comparator.comparing(Address::getCity))
