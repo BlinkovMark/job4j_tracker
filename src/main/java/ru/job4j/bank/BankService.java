@@ -1,9 +1,6 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Класс описывает работу банковской системы,
@@ -41,9 +38,9 @@ public class BankService {
      * @param account счет который нужно проверить и добавить
      */
     public void addAccount(String passport, Account account) {
-        User temp = findByPassport(passport);
-        if (temp != null) {
-            List<Account> val = users.get(temp);
+        Optional<User> temp = findByPassport(passport);
+        if (temp.isPresent()) {
+            List<Account> val = users.get(temp.get());
             if (!val.contains(account)) {
                 val.add(account);
             }
@@ -58,11 +55,10 @@ public class BankService {
      * @return возвращает найденного пользователя или null если пользователь не найден
      */
 
-    public User findByPassport(String passport) {
+    public Optional<User> findByPassport(String passport) {
         return users.keySet().stream()
                 .filter(a -> a.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
     /**
@@ -76,15 +72,14 @@ public class BankService {
      * @return возвращает счет пользователя или null если счет не найден
      */
 
-    public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            return users.get(user).stream()
+    public Optional<Account> findByRequisite(String passport, String requisite) {
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            return users.get(user.get()).stream()
                     .filter(a -> a.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
+                    .findFirst();
         }
-        return null;
+        return Optional.empty();
     }
     /**
      * Метод принимает паспорт, реквизиты переводящего, паспорт,
@@ -106,11 +101,13 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
-        Account destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
-            srcAccount.setBalance(srcAccount.getBalance() - amount);
-            destAccount.setBalance(destAccount.getBalance() + amount);
+        Optional<Account> srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount.isPresent()
+                && destAccount.isPresent()
+                && srcAccount.get().getBalance() >= amount) {
+            srcAccount.get().setBalance(srcAccount.get().getBalance() - amount);
+            destAccount.get().setBalance(destAccount.get().getBalance() + amount);
             rsl = true;
         }
         return rsl;
